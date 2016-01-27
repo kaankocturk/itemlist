@@ -43,7 +43,12 @@ router.get('/:id', function(req, res) {
 });
 
 router.put('/:id', function(req,res){
-  Item.update({_id: req.params.id}, {$set : req.body});
+  console.log(req.params.id);
+  console.log(req.body);
+  Item.update({_id: req.params.id}, {$set : req.body}, function(err){
+    res.send('ok');
+  });
+
 });
 
 module.exports = router;

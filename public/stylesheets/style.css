@@ -3,6 +3,14 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
+html {
+  background: url('http://royalflushmagazine.com/wp-content/uploads/2012/11/blackfriday.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
 a {
   color: #00B7FF;
 }
@@ -24,6 +32,11 @@ a {
   font-size: 15px;
 }
 
-/*tr:hover{
+img{
+  max-width: 200px;
+  max-height: 200px;
+}
 
-}*/
+#bf{
+  margin-left: 250px;
+}
