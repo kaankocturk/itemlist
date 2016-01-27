@@ -1,0 +1,37 @@
+extends layout
+
+block content
+  table.table.table-striped.table-hover
+    thead
+      tr
+        th Name
+        th Price
+        th Picture url
+        th
+    tbody
+      tr#template
+        td.name
+        td.price
+        td.picurl
+        td.remove  
+  #updateItem.modal.fade(role='dialog')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h2.modal-title Update item
+        .modal-body
+          p Enter new information.
+          form.input(role='form')
+            .form-group
+              label(for='mname') Name:
+              input#mname.form-control(type='text')
+            .form-group
+              label(for='mprice') price:
+              input#mprice.form-control(type='text')
+            .form-group
+              label(for='mpicurl') Pic Url:
+              input#mpicurl.form-control(type='text')
+            button.btn.btn-success.updateItem(type='submit') Update Item  
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Close        
+  script(src='javascripts/itemList.js')

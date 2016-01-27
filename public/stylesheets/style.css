@@ -1,0 +1,29 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#template{
+  display: none;
+}
+
+.container1{
+  text-align: center;
+}
+.input{
+  margin-bottom: 30px;
+}
+.glyphicon-trash{
+  font-size: 10px;
+}
+.main{
+  font-size: 15px;
+}
+
+/*tr:hover{
+
+}*/
