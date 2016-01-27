@@ -1,6 +1,10 @@
 extends layout
 block content
-  ul Item Information
-    li Name = #{name}
-    li Price = #{price}
-    img(src= '#{picurl}')
+  .row
+    .col-xs-4  
+      ul Item Information
+        li Name = #{name}
+        li Price = #{price}
+        img(src= '#{picurl}')
+    .col-xs-8
+      img(src='http://0.media.collegehumor.cvcdn.com/29/39/e33256bc6c0aa960ce4759d4a46ceaa1.gif')
