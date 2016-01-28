@@ -101,15 +101,18 @@ function init(){
   $('.reset').click(function(e){
     $('tbody tr').detach();
     $('tbody').append(domstuff);
+    $('.total').text('$'+total.toFixed(2));
   });
 
   $('#filterList').on('click', '.filterList', function(e){
     e.preventDefault();
     var newdom = [];
+    var newtotal = 0;
     if($('input#m2name').val()){
       for(var i = 0 ; i< domstuff.length; i++){
         if($(domstuff[i][0]).find('.name').text()===$('input#m2name').val()){
           newdom.push(domstuff[i][0]);
+          newtotal+= parseInt($(domstuff[i][0]).find('.price').text().substr(1));
         }
       }
     }
@@ -122,6 +125,7 @@ function init(){
           for(var i = 0 ; i< domstuff.length; i++){
             if(ifcon = (parseInt($(domstuff[i][0]).find('.price').text().substr(1))>$('input#m2price').val())){
               newdom.push(domstuff[i][0]);
+              newtotal+= parseInt($(domstuff[i][0]).find('.price').text().substr(1));
             }
           }
           break;
@@ -129,6 +133,7 @@ function init(){
           for(var i = 0 ; i< domstuff.length; i++){
             if(ifcon = (parseInt($(domstuff[i][0]).find('.price').text().substr(1))<$('input#m2price').val())){
               newdom.push(domstuff[i][0]);
+              newtotal+= parseInt($(domstuff[i][0]).find('.price').text().substr(1));
             }
           }
           break;
@@ -136,6 +141,7 @@ function init(){
           for(var i = 0 ; i< domstuff.length; i++){
             if(ifcon = (parseInt($(domstuff[i][0]).find('.price').text().substr(1))===$('input#m2price').val())){
               newdom.push(domstuff[i][0]);
+              newtotal+= parseInt($(domstuff[i][0]).find('.price').text().substr(1));
             }
           }
           break;
@@ -146,6 +152,7 @@ function init(){
     $('tbody tr').detach();
     $('input').val('');
     $('tbody').append(newdom);
+    $('.total').text('$'+newtotal.toFixed(2));
   });
 
   $.get('/items')
@@ -158,7 +165,8 @@ function init(){
       var $tr = $('#template').clone().attr('id', 'item'+itemcount).data('id', input._id);
       $tr.find('.name').text(input.name);
       $tr.find('.price').text('$'+input.price.toFixed(2));
-      $tr.find('.picurl').text(input.picurl);
+      var $img = $('<img>').attr('src', input.picurl).attr('style', 'max-width:40px');
+      $tr.find('.picurl').append($img);
       $tr.find('.remove').append($button,$update);
       itemcount++;
       return $tr;

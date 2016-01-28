@@ -1,6 +1,8 @@
 extends layout
 
 block content
+  h1 Item List
+  p Click on a header to sort. 
   table.table.table-striped.table-hover
     thead
       tr
@@ -16,7 +18,7 @@ block content
         td.remove  
   p Your total is:
     span.total
-  p Filter          
+  p           
     button.btn.btn-info.filter Filter
     button.btn.btn-default.reset Reset
   #updateItem.modal.fade(role='dialog')
@@ -43,7 +45,7 @@ block content
     .modal-dialog
       .modal-content
         .modal-header
-          h2.modal-title Enter value to 1 field you'd like to filter by
+          h2.modal-title Filter by either name or number
         .modal-body
           p Enter new information.
           form.input(role='form')
