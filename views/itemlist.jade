@@ -4,8 +4,8 @@ block content
   table.table.table-striped.table-hover
     thead
       tr
-        th Name
-        th Price
+        th#names Name
+        th#prices Price
         th Picture url
         th
     tbody
@@ -15,7 +15,10 @@ block content
         td.picurl
         td.remove  
   p Your total is:
-    span.total        
+    span.total
+  p Filter          
+    button.btn.btn-info.filter Filter
+    button.btn.btn-default.reset Reset
   #updateItem.modal.fade(role='dialog')
     .modal-dialog
       .modal-content
@@ -34,6 +37,29 @@ block content
               label(for='mpicurl') Pic Url:
               input#mpicurl.form-control(type='text')
             button.btn.btn-success.updateItem(type='submit') Update Item  
+        .modal-footer
+          button.btn.btn-default(type='button', data-dismiss='modal') Close        
+  #filterList.modal.fade(role='dialog')
+    .modal-dialog
+      .modal-content
+        .modal-header
+          h2.modal-title Enter value to 1 field you'd like to filter by
+        .modal-body
+          p Enter new information.
+          form.input(role='form')
+            .form-group
+              label(for='m2name') Name:
+              input#m2name.form-control(type='text')
+            .form-group
+              label(for='m2price') Price:
+              input#m2price.form-control(type='number')
+              label.radio-inline Greater than
+              input(id='greater', type='radio', name='optradio')
+              label.radio-inline Equal to
+              input(id='equal', type='radio', name='optradio')
+              label.radio-inline Less than
+              input(id='less', type='radio', name='optradio')
+            button.btn.btn-success.filterList(type='submit') Filter  
         .modal-footer
           button.btn.btn-default(type='button', data-dismiss='modal') Close        
   script(src='javascripts/itemList.js')
