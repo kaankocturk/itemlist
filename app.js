@@ -6,7 +6,7 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/shopping3', function(err) {
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/shopping3', function(err) {
   if(err) return console.log('mongo err:', err);
   console.log('Connected to MongoDB');
 });
